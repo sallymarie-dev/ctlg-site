@@ -3,13 +3,15 @@ import './styles/App.css';
 import Navbar from './components/NavBar';
 import SabbathStatus from './components/SabbathStatus'; 
 import ServiceSchedule from './components/ServiceSchedule';
+import GiveModal from './components/GiveModal';
 
 function App() {
   const [showSchedule, setShowSchedule] = useState(false);
+  const [showGive, setShowGive] = useState(false);
 
   return (
     <div className="app-viewport">
-      <Navbar />
+      <Navbar onGiveClick={() => setShowGive(true)} />
       
       <main className="hero-section">
         <div className="hero-overlay">
@@ -42,6 +44,15 @@ function App() {
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <button className="close-btn" onClick={() => setShowSchedule(false)}>&times;</button>
             <ServiceSchedule />
+          </div>
+        </div>
+      )}
+
+{showGive && (
+        <div className="modal-overlay" onClick={() => setShowGive(false)}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="close-btn" onClick={() => setShowGive(false)}>&times;</button>
+            <GiveModal />
           </div>
         </div>
       )}

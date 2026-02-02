@@ -1,13 +1,17 @@
-export default function Navbar() {
-    return (
-        <nav className="navbar">
-            <div className="nav-logo"> THE <br /> CTLG CHURCH </div>
-            <ul className="nav-links">
-                <li className="nav-item">Home</li>
-                <li className="nav-item">Sermons</li>
-                <li className="nav-item">Events</li>
-                <li className="nav-item nav-cta">Give</li>
-            </ul>
-        </nav>
-    );
-}
+const Navbar = ({ onGiveClick }) => {
+  return (
+    <nav className="navbar">
+      <div className="nav-logo">
+        THE LIVING GOD <span className="logo-accent">PGOTT</span>
+      </div>
+      <ul className="nav-links">
+        <li className="nav-item">Home</li>
+        <li className="nav-item">About Us</li>
+        <li className="nav-item">Sermons</li>
+        
+        <li className="nav-cta" onClick={onGiveClick} style={{cursor: 'pointer'}}>Give</li>
+      </ul>
+    </nav>
+  );
+};
+export default Navbar;

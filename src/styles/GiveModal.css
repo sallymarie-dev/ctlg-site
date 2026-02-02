@@ -1,0 +1,149 @@
+.give-container {
+  width: 100%;
+  padding: 10px;
+}
+
+.give-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.give-title {
+  font-size: 36px;
+  color: #1a252f;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.give-subtitle {
+  font-size: 16px;
+  color: #7f8c8d;
+  font-style: italic;
+}
+
+.give-grid {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.give-card {
+  background: #ffffff;
+  border: 1px solid #eef2f3;
+  border-radius: 20px;
+  padding: 30px;
+  flex: 1;
+  min-width: 320px;
+  max-width: 360px;
+  min-height: 620px; 
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.give-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0px 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.give-card.featured {
+  border: 2px solid #d4af37;
+  background-color: #fffdf5;
+  box-shadow: 0px 10px 25px rgba(212, 175, 55, 0.1);
+}
+
+.give-tag {
+  font-size: 11px;
+  font-weight: 800;
+  color: #e67e22;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.give-card h3 {
+  font-size: 24px;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.scripture-box {
+  background: rgba(44, 62, 80, 0.03);
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  border-left: 3px solid #d4af37;
+}
+
+.scripture-text {
+  font-size: 13px;
+  font-style: italic;
+  color: #34495e;
+  line-height: 1.4;
+  margin-bottom: 5px;
+}
+
+.scripture-ref {
+  font-size: 12px;
+  font-weight: 700;
+  color: #d4af37;
+  text-align: right;
+}
+
+.give-desc {
+  font-size: 14px;
+  color: #555555;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.method-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #95a5a6;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.platform-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: auto; 
+}
+
+.platform-btn {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #eef2f3;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #2c3e50;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.platform-btn:hover {
+  background: #1a252f;
+  color: #ffffff;
+  border-color: #1a252f;
+}
+
+.platform-btn.cashapp:hover { border-color: #00D632; color: #00D632; background: #f0fff4; }
+.platform-btn.paypal:hover { border-color: #003087; color: #003087; background: #f0f4ff; }
+.platform-btn.apple:hover { border-color: #000000; color: #000000; background: #f9f9f9; }
+.platform-btn.chime:hover { border-color: #25D366; color: #25D366; background: #f0fff4; }
+
+.divider {
+  height: 1px;
+  background-color: #eef2f3;
+  margin: 20px 0;
+}
