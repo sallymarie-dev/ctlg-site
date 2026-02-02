@@ -10,6 +10,7 @@
   position: sticky;
   top: 0;
   z-index: 1000;
+  width: 100%;
 }
 
 .nav-logo {
@@ -44,10 +45,7 @@
   color: rgba(255, 255, 255, 0.8);
   transition: color 0.3s ease;
   font-size: 15px;
-}
-
-.nav-item:hover {
-  color: #d4af37;
+  white-space: nowrap;
 }
 
 .nav-cta {
@@ -59,30 +57,39 @@
   font-weight: 700;
   font-size: 14px;
   transition: all 0.3s ease;
+  white-space: nowrap;
 }
 
-/* MOBILE FIX: Stacking the layout */
+/* --- MOBILE 2-ROW FIX --- */
 @media (max-width: 768px) {
   .navbar {
-    padding: 15px 10px;
-    flex-direction: column; /* Stacks Logo over Links */
-    gap: 15px;
-    text-align: center;
+    padding: 15px 0 !important;
+    flex-direction: column !important; /* Forces the vertical stack */
+    align-items: center !important;
+    gap: 12px !important;
   }
 
   .nav-logo {
-    font-size: 18px;
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 0 10px;
+    margin-bottom: 5px;
   }
 
   .nav-links {
+    display: flex !important;
+    flex-direction: row !important; /* Keeps links side-by-side on the 2nd row */
     width: 100%;
-    justify-content: center; /* Centers all 4 items */
-    gap: 12px;
-    padding-bottom: 5px;
+    justify-content: center !important; 
+    gap: 15px; 
+    padding: 12px 0;
+    background: rgba(255, 255, 255, 0.03); /* Subtle separation for row 2 */
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
   }
 
   .nav-item {
-    font-size: 13px; /* Slightly smaller to fit on one line */
+    font-size: 13px;
   }
 
   .nav-cta {
