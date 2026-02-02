@@ -46,10 +46,12 @@ const SabbathStatus = () => {
     }, []);
 
     return (
-        <div className={`sabbath-banner ${isSabbath ? 'sabbath-active' : ''}`}>
-            <p className="sabbath-text">{status}</p>
-        </div>
-    );
+    <div 
+      className={`sabbath-banner ${isSabbath ? 'sabbath-active' : ''}`}
+    >
+        <p className="sabbath-text">{status}</p>
+    </div>
+);
 };
 
 export default SabbathStatus;

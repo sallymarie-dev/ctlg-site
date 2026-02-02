@@ -8,37 +8,39 @@ function App() {
   const [showSchedule, setShowSchedule] = useState(false);
 
   return (
-    <div className="App">
+    <div className="app-viewport">
       <Navbar />
-      <SabbathStatus />
       
-      <main className="main-content">
-        <h1 className="hero-title">
-          Welcome to The Church of The Living God <br />
-          <span className="hero-subtitle">the Pillar and Ground of the Truth</span>
-        </h1>
-        
-        <p className="hero-description">
-          Your journey with Grace starts here.
-        </p>
+      <main className="hero-section">
+        <div className="hero-overlay">
+          <div className="hero-content">
+            <h1 className="hero-title">
+              Welcome to <br />
+              <span className="church-name-main">The Church of The Living God</span>
+              <span className="hero-subtitle">The Pillar and Ground of the Truth</span>
+            </h1>
+            
+            <p className="hero-description">
+              Your journey with Grace starts here.
+            </p>
 
-        <div className="cta-section">
-          <h2 className="cta-title">Worship With Us</h2>
-          <p className="cta-text">Join us this Friday evening or Saturday morning for rest and fellowship.</p>
-          
-          <button 
-            className="service-times-btn" 
-            onClick={() => setShowSchedule(true)}
-          >
-            Service Times
-          </button>
+            <div className="status-button-wrapper" onClick={() => setShowSchedule(true)}>
+              <SabbathStatus />
+            </div>
+
+            <div className="cta-simple">
+              <button className="ghost-btn" onClick={() => setShowSchedule(true)}>
+                View Full Weekly Schedule
+              </button>
+            </div>
+          </div>
         </div>
       </main>
 
       {showSchedule && (
         <div className="modal-overlay" onClick={() => setShowSchedule(false)}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <button className="close-btn" onClick={() => setShowSchedule(false)}>×</button>
+            <button className="close-btn" onClick={() => setShowSchedule(false)}>&times;</button>
             <ServiceSchedule />
           </div>
         </div>

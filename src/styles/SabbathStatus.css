@@ -1,29 +1,41 @@
 .sabbath-banner {
-    padding: 20px;
-    margin: 15px auto;
+    padding: 25px 50px;
+    margin: 30px auto;
     max-width: 800px;
     text-align: center;
-    border-radius: 12px;
-    background: #ffffff;
-    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.05);
-    border: 1px solid #e1e8ed;
-    transition: all 0.3s ease;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.1); 
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.3);
+    
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
 }
-
 .sabbath-active {
-    background: #fdfaf0;
-    border: 1px solid #d4af37;
-    box-shadow: 0px 4px 20px rgba(212, 175, 55, 0.15);
+    background: rgba(212, 175, 55, 0.15); 
+    border: 2px solid #d4af37; 
+    box-shadow: 0px 0px 25px rgba(212, 175, 55, 0.5); 
+}
+.sabbath-banner:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.5);
 }
 
 .sabbath-text {
     font-family: 'Inter', sans-serif;
-    font-size: 18px; 
-    font-weight: 600;
-    color: #2c3e50;
+    font-size: 22px; 
+    font-weight: 700;
+    color: #ffffff; 
     margin: 0px;
+    letter-spacing: 0.5px;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .sabbath-active .sabbath-text {
-    color: #8c6d05;
+    color: #ffffff;
+    text-shadow: 0px 0px 10px rgba(212, 175, 55, 0.8);
 }
