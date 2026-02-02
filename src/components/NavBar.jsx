@@ -2,7 +2,7 @@ const Navbar = ({ onGiveClick }) => {
   return (
     <nav className="navbar">
       <div className="nav-logo">
-        THE LIVING GOD <span className="logo-accent">PGOTT</span>
+        THE CHURCH OF THE LIVING GOD <span className="logo-accent">PGOTT</span>
       </div>
       <ul className="nav-links">
         <li className="nav-item">Home</li>
