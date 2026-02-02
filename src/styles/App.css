@@ -1,41 +1,58 @@
+/* --- GLOBAL RESET & STABILITY --- */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+html, body {
+  overflow-x: hidden; /* Prevents horizontal jiggling on mobile */
+  width: 100%;
+  background-color: #0a0a0a;
+}
+
 .app-viewport {
   min-height: 100vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), 
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), 
               url('https://images.unsplash.com/photo-1438232992991-995b7058bbb3?q=80&w=2073') no-repeat center center/cover;
-  background-attachment: fixed;
+  background-attachment: scroll; 
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   color: #ffffff;
 }
 
+/* --- NAVBAR --- */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 80px; 
-  background: rgba(255, 255, 255, 0.05);
+  padding: 20px 5%;
+  background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
+  width: 100%;
 }
 
 .nav-logo {
-  font-size: 24px; 
+  font-size: 20px;
   font-weight: 800;
   color: #ffffff;
-  letter-spacing: -1px;
+  line-height: 1.2;
+}
+
+.logo-main {
+  display: block;
+  font-size: 14px;
+  font-weight: 400;
+  opacity: 0.9;
 }
 
 .logo-accent {
   color: #d4af37;
+  font-size: 22px;
 }
 
 .nav-links {
@@ -51,59 +68,44 @@
   color: rgba(255, 255, 255, 0.8);
   transition: color 0.3s ease;
   font-size: 16px;
-  text-decoration: none;
+  white-space: nowrap;
 }
 
 .nav-item:hover {
   color: #d4af37;
 }
 
+/* --- HERO SECTION --- */
 .hero-section {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 80vh;
+  min-height: 85vh;
   text-align: center;
   padding: 40px 20px;
 }
 
-.hero-title {
-  margin-bottom: 24px;
-}
-
 .church-name-main {
-  font-size: 64px;
+  font-size: clamp(32px, 8vw, 64px);
   font-weight: 800;
   display: block;
-  letter-spacing: -2px;
+  letter-spacing: -1px;
   line-height: 1.1;
 }
 
 .hero-subtitle {
-  font-size: 32px;
+  font-size: clamp(18px, 4vw, 32px);
   font-weight: 300;
-  color: #d4af37; 
+  color: #d4af37;
   display: block;
   margin-top: 15px;
 }
 
 .hero-description {
-  font-size: 22px;
+  font-size: 18px;
   color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 40px;
+  margin: 20px auto 40px;
   max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.status-button-wrapper {
-  display: inline-block;
-  cursor: pointer;
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.status-button-wrapper:hover {
-  transform: scale(1.05);
 }
 
 .ghost-btn {
@@ -113,158 +115,81 @@
   padding: 14px 28px;
   border-radius: 30px;
   cursor: pointer;
-  margin-top: 30px;
   font-size: 16px;
   font-weight: 600;
   transition: all 0.3s ease;
 }
 
-.ghost-btn:hover {
-  background: white;
-  color: #1a1a1a;
-  border-color: white;
-}
-
+/* --- MODAL FIXES --- */
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(0, 0, 0, 0.9);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 2000;
-  padding: 20px;
+  padding: 15px; /* Margin for mobile edges */
 }
 
 .modal-content {
   background: #ffffff;
   color: #2c3e50;
-  padding: 50px 40px;
+  padding: 40px 20px;
   border-radius: 24px;
+  width: 100%;
+  max-width: 800px;
   position: relative;
-  width: 95%;
-  max-width: 1200px;
-  max-height: 90vh;
-  overflow-y: auto;
+  text-align: center;
+  
+  /* SCROLL LOGIC */
+  max-height: 85vh; 
+  overflow-y: auto; 
+  -webkit-overflow-scrolling: touch; /* Smooth scroll for iOS */
   box-shadow: 0px 30px 60px rgba(0, 0, 0, 0.5);
-  animation: modalFadeIn 0.4s ease-out;
-}
-
-@keyframes modalFadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
 }
 
 .close-btn {
-  position: absolute;
-  top: 20px;
-  right: 25px;
+  position: sticky; /* Stays at top while you scroll content */
+  top: 0;
+  right: 0;
+  float: right;
   background: #f1f1f1;
   border: none;
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  font-size: 30px;
+  font-size: 24px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: 0.3s;
-}
-
-.close-btn:hover {
-  background: #e67e22;
-  color: white;
-}
-
-.schedule-container {
-  width: 100%;
-}
-
-.schedule-title {
-  font-size: 36px;
-  color: #1a252f;
+  z-index: 10;
   margin-bottom: 10px;
-  text-align: center;
 }
 
-.schedule-subtitle {
-  font-size: 18px;
-  color: #7f8c8d;
-  margin-bottom: 40px;
-  text-align: center;
-}
+/* --- MOBILE FRIENDLY OVERRIDES --- */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column; 
+    padding: 15px 10px;
+    gap: 15px;
+  }
 
-.schedule-grid {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 24px;
-  flex-wrap: wrap;
-}
+  .nav-links {
+    gap: 15px;
+    width: 100%;
+    justify-content: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 12px;
+  }
 
-.schedule-card {
-  background: #ffffff;
-  border: 1px solid #eef2f3;
-  border-radius: 16px;
-  padding: 30px;
-  flex: 1;
-  min-width: 320px;
-  max-width: 360px;
-  box-shadow: 0px 10px 20px rgba(0,0,0,0.03);
-  text-align: left;
-  transition: transform 0.3s ease;
-}
+  .nav-item {
+    font-size: 13px;
+  }
 
-.schedule-card:hover {
-  transform: translateY(-5px);
-}
-
-.active-day {
-  border: 2px solid #d4af37;
-  background-color: #fffdf5;
-  box-shadow: 0px 15px 30px rgba(212, 175, 55, 0.15);
-}
-
-.day-tag {
-  font-size: 12px;
-  font-weight: 800;
-  color: #e67e22;
-  margin-bottom: 12px;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-}
-
-.schedule-card h3 {
-  font-size: 22px;
-  color: #2c3e50;
-  margin-bottom: 8px;
-}
-
-.time {
-  font-weight: 700;
-  font-size: 18px;
-  color: #1a252f;
-  margin-bottom: 8px;
-}
-
-.desc {
-  font-size: 15px;
-  color: #555555;
-  line-height: 1.6;
-}
-
-.divider {
-  height: 1px;
-  background-color: #eef2f3;
-  margin: 20px 0px;
-}
-
-.site-footer {
-  padding: 60px 20px;
-  background: rgba(0,0,0,0.9);
-  color: rgba(255,255,255,0.5);
-  border-top: 1px solid rgba(255,255,255,0.1);
-  text-align: center;
-  font-size: 14px;
+  .hero-section {
+    padding-top: 60px;
+  }
+  
+  .modal-content {
+    padding: 30px 15px;
+  }
 }
