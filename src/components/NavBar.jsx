@@ -9,7 +9,7 @@ const Navbar = ({ onGiveClick }) => {
         <li className="nav-item">Home</li>
         <li className="nav-item">About Us</li>
         <li className="nav-item">Sermons</li>
-        <li className="nav-cta" onClick={onGiveClick}>Give</li>
+        <li className="nav-item" onClick={onGiveClick}>Give</li>
       </ul>
     </nav>
   );
