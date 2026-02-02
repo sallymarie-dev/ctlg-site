@@ -1,0 +1,18 @@
+backend:
+  name: git-gateway
+  branch: main # or master, whichever you use
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "give"
+    label: "Giving Categories"
+    folder: "src/data/give" # This is where the church's edits will be saved
+    create: true
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Tag", name: "tag", widget: "string"}
+      - {label: "Description", name: "body", widget: "markdown"}
+      - {label: "Scripture", name: "scripture", widget: "text"}
+      - {label: "Reference", name: "reference", widget: "string"}
