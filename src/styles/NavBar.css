@@ -1,0 +1,92 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 80px; 
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-logo {
+  font-size: 20px; 
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.logo-prefix {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+.logo-accent {
+  color: #d4af37;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 25px;
+  align-items: center;
+}
+
+.nav-item {
+  cursor: pointer;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  transition: color 0.3s ease;
+  font-size: 15px;
+}
+
+.nav-item:hover {
+  color: #d4af37;
+}
+
+.nav-cta {
+  cursor: pointer;
+  background: #d4af37;
+  color: #1a252f !important;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-weight: 700;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+/* MOBILE FIX: Stacking the layout */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px 10px;
+    flex-direction: column; /* Stacks Logo over Links */
+    gap: 15px;
+    text-align: center;
+  }
+
+  .nav-logo {
+    font-size: 18px;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: center; /* Centers all 4 items */
+    gap: 12px;
+    padding-bottom: 5px;
+  }
+
+  .nav-item {
+    font-size: 13px; /* Slightly smaller to fit on one line */
+  }
+
+  .nav-cta {
+    padding: 6px 14px;
+    font-size: 12px;
+  }
+}
